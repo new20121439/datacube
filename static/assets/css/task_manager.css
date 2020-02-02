@@ -1,0 +1,21 @@
+.table-container {
+  padding: 15px;
+}
+
+.form-inline {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.table {
+  margin-bottom: 0px;
+}
+
+thead {
+  background-color: #d4d4d4;
+}
+
+tr td, .table > thead > tr > th{
+  text-align: center;
+  vertical-align: middle;
+}

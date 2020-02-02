@@ -1,0 +1,9 @@
+CELERY_BIN="/home/dung/Datacube/datacube_env/bin/celery"
+
+CELERY_APP="data_cube_ui"
+DJANGO_SETTINGS_MODULE="data_cube_ui.settings"
+
+CELERYD_CHDIR="/home/dung/Datacube/data_cube_ui/"
+
+CELERYD_USER="dung"
+CELERYD_GROUP="dung"

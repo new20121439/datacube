@@ -1,0 +1,14 @@
+[2020-01-07 06:53:50,159: WARNING/MainProcess] /home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/control.py:54: DuplicateNodenameWarning: Received multiple replies from node name: celery@dung.
+Please make sure you give each node a unique nodename using
+the celery worker `-n` option.
+  pluralize(len(dupes), 'name'), ', '.join(sorted(dupes)),
+[2020-01-07 06:53:50,185: WARNING/MainProcess] /home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-01-16 10:16:20,305: WARNING/MainProcess] /home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/control.py:54: DuplicateNodenameWarning: Received multiple replies from node name: celery@dung.
+Please make sure you give each node a unique nodename using
+the celery worker `-n` option.
+  pluralize(len(dupes), 'name'), ', '.join(sorted(dupes)),
+[2020-01-16 10:16:20,395: WARNING/MainProcess] /home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')

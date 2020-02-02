@@ -1,0 +1,292 @@
+[2020-01-16 10:16:20,383: WARNING/MainProcess] /home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/control.py:54: DuplicateNodenameWarning: Received multiple replies from node name: celery@dung.
+Please make sure you give each node a unique nodename using
+the celery worker `-n` option.
+  pluralize(len(dupes), 'name'), ', '.join(sorted(dupes)),
+[2020-01-16 10:16:20,414: WARNING/MainProcess] /home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-01-16 10:29:12,307: ERROR/MainProcess] Task handler raised error: NotImplementedError('You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.',)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/billiard/pool.py", line 362, in workloop
+    result = (True, prepare_result(fun(*args, **kwargs)))
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 558, in _fast_trace_task
+    uuid, args, kwargs, request,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 499, in trace_task
+    I, _, _, _ = on_error(task_request, exc, uuid)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 339, in on_error
+    task, request, eager=eager, call_errbacks=call_errbacks,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 172, in handle_error_state
+    call_errbacks=call_errbacks)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 220, in handle_failure
+    task.on_failure(exc, req.id, req.args, req.kwargs, einfo)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 24, in on_failure
+    camel_case = "".join(x.title() for x in self._get_app_name().split('_'))
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 43, in _get_app_name
+    "You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details."
+NotImplementedError: You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.
+[2020-01-16 10:34:04,481: ERROR/MainProcess] Task handler raised error: NotImplementedError('You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.',)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/billiard/pool.py", line 362, in workloop
+    result = (True, prepare_result(fun(*args, **kwargs)))
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 558, in _fast_trace_task
+    uuid, args, kwargs, request,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 499, in trace_task
+    I, _, _, _ = on_error(task_request, exc, uuid)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 339, in on_error
+    task, request, eager=eager, call_errbacks=call_errbacks,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 172, in handle_error_state
+    call_errbacks=call_errbacks)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 220, in handle_failure
+    task.on_failure(exc, req.id, req.args, req.kwargs, einfo)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 24, in on_failure
+    camel_case = "".join(x.title() for x in self._get_app_name().split('_'))
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 43, in _get_app_name
+    "You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details."
+NotImplementedError: You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.
+[2020-01-16 10:52:57,315: ERROR/MainProcess] Task handler raised error: NotImplementedError('You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.',)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/billiard/pool.py", line 362, in workloop
+    result = (True, prepare_result(fun(*args, **kwargs)))
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 558, in _fast_trace_task
+    uuid, args, kwargs, request,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 499, in trace_task
+    I, _, _, _ = on_error(task_request, exc, uuid)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 339, in on_error
+    task, request, eager=eager, call_errbacks=call_errbacks,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 172, in handle_error_state
+    call_errbacks=call_errbacks)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 220, in handle_failure
+    task.on_failure(exc, req.id, req.args, req.kwargs, einfo)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 24, in on_failure
+    camel_case = "".join(x.title() for x in self._get_app_name().split('_'))
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 43, in _get_app_name
+    "You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details."
+NotImplementedError: You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.
+[2020-01-16 11:41:50,507: ERROR/MainProcess] Task handler raised error: NotImplementedError('You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.',)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/billiard/pool.py", line 362, in workloop
+    result = (True, prepare_result(fun(*args, **kwargs)))
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 558, in _fast_trace_task
+    uuid, args, kwargs, request,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 499, in trace_task
+    I, _, _, _ = on_error(task_request, exc, uuid)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 339, in on_error
+    task, request, eager=eager, call_errbacks=call_errbacks,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 172, in handle_error_state
+    call_errbacks=call_errbacks)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 220, in handle_failure
+    task.on_failure(exc, req.id, req.args, req.kwargs, einfo)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 24, in on_failure
+    camel_case = "".join(x.title() for x in self._get_app_name().split('_'))
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 43, in _get_app_name
+    "You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details."
+NotImplementedError: You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.
+[2020-01-16 11:42:48,997: ERROR/MainProcess] Task handler raised error: NotImplementedError('You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.',)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/billiard/pool.py", line 362, in workloop
+    result = (True, prepare_result(fun(*args, **kwargs)))
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 558, in _fast_trace_task
+    uuid, args, kwargs, request,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 499, in trace_task
+    I, _, _, _ = on_error(task_request, exc, uuid)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 339, in on_error
+    task, request, eager=eager, call_errbacks=call_errbacks,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 172, in handle_error_state
+    call_errbacks=call_errbacks)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 220, in handle_failure
+    task.on_failure(exc, req.id, req.args, req.kwargs, einfo)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 24, in on_failure
+    camel_case = "".join(x.title() for x in self._get_app_name().split('_'))
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 43, in _get_app_name
+    "You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details."
+NotImplementedError: You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.
+[2020-01-16 11:46:38,213: ERROR/MainProcess] Task handler raised error: NotImplementedError('You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.',)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/billiard/pool.py", line 362, in workloop
+    result = (True, prepare_result(fun(*args, **kwargs)))
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 558, in _fast_trace_task
+    uuid, args, kwargs, request,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 499, in trace_task
+    I, _, _, _ = on_error(task_request, exc, uuid)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 339, in on_error
+    task, request, eager=eager, call_errbacks=call_errbacks,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 172, in handle_error_state
+    call_errbacks=call_errbacks)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 220, in handle_failure
+    task.on_failure(exc, req.id, req.args, req.kwargs, einfo)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 24, in on_failure
+    camel_case = "".join(x.title() for x in self._get_app_name().split('_'))
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 43, in _get_app_name
+    "You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details."
+NotImplementedError: You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.
+[2020-01-16 11:57:25,043: ERROR/MainProcess] Task handler raised error: NotImplementedError('You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.',)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/billiard/pool.py", line 362, in workloop
+    result = (True, prepare_result(fun(*args, **kwargs)))
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 558, in _fast_trace_task
+    uuid, args, kwargs, request,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 499, in trace_task
+    I, _, _, _ = on_error(task_request, exc, uuid)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 339, in on_error
+    task, request, eager=eager, call_errbacks=call_errbacks,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 172, in handle_error_state
+    call_errbacks=call_errbacks)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 220, in handle_failure
+    task.on_failure(exc, req.id, req.args, req.kwargs, einfo)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 24, in on_failure
+    camel_case = "".join(x.title() for x in self._get_app_name().split('_'))
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 43, in _get_app_name
+    "You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details."
+NotImplementedError: You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.
+[2020-01-16 17:10:13,175: ERROR/MainProcess] Task handler raised error: NotImplementedError('You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.',)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/billiard/pool.py", line 362, in workloop
+    result = (True, prepare_result(fun(*args, **kwargs)))
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 558, in _fast_trace_task
+    uuid, args, kwargs, request,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 499, in trace_task
+    I, _, _, _ = on_error(task_request, exc, uuid)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 339, in on_error
+    task, request, eager=eager, call_errbacks=call_errbacks,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 172, in handle_error_state
+    call_errbacks=call_errbacks)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 220, in handle_failure
+    task.on_failure(exc, req.id, req.args, req.kwargs, einfo)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 24, in on_failure
+    camel_case = "".join(x.title() for x in self._get_app_name().split('_'))
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 43, in _get_app_name
+    "You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details."
+NotImplementedError: You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.
+[2020-01-16 17:17:31,262: ERROR/MainProcess] Task handler raised error: NotImplementedError('You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.',)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/billiard/pool.py", line 362, in workloop
+    result = (True, prepare_result(fun(*args, **kwargs)))
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 558, in _fast_trace_task
+    uuid, args, kwargs, request,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 499, in trace_task
+    I, _, _, _ = on_error(task_request, exc, uuid)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 339, in on_error
+    task, request, eager=eager, call_errbacks=call_errbacks,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 172, in handle_error_state
+    call_errbacks=call_errbacks)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 220, in handle_failure
+    task.on_failure(exc, req.id, req.args, req.kwargs, einfo)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 24, in on_failure
+    camel_case = "".join(x.title() for x in self._get_app_name().split('_'))
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 43, in _get_app_name
+    "You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details."
+NotImplementedError: You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.
+[2020-01-16 17:22:24,035: ERROR/MainProcess] Task handler raised error: NotImplementedError('You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.',)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/billiard/pool.py", line 362, in workloop
+    result = (True, prepare_result(fun(*args, **kwargs)))
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 558, in _fast_trace_task
+    uuid, args, kwargs, request,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 499, in trace_task
+    I, _, _, _ = on_error(task_request, exc, uuid)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 339, in on_error
+    task, request, eager=eager, call_errbacks=call_errbacks,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 172, in handle_error_state
+    call_errbacks=call_errbacks)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 220, in handle_failure
+    task.on_failure(exc, req.id, req.args, req.kwargs, einfo)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 24, in on_failure
+    camel_case = "".join(x.title() for x in self._get_app_name().split('_'))
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 43, in _get_app_name
+    "You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details."
+NotImplementedError: You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.
+[2020-01-16 17:37:39,063: ERROR/MainProcess] Task handler raised error: NotImplementedError('You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.',)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/billiard/pool.py", line 362, in workloop
+    result = (True, prepare_result(fun(*args, **kwargs)))
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 558, in _fast_trace_task
+    uuid, args, kwargs, request,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 499, in trace_task
+    I, _, _, _ = on_error(task_request, exc, uuid)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 339, in on_error
+    task, request, eager=eager, call_errbacks=call_errbacks,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 172, in handle_error_state
+    call_errbacks=call_errbacks)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 220, in handle_failure
+    task.on_failure(exc, req.id, req.args, req.kwargs, einfo)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 24, in on_failure
+    camel_case = "".join(x.title() for x in self._get_app_name().split('_'))
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 43, in _get_app_name
+    "You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details."
+NotImplementedError: You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.
+[2020-01-16 17:42:48,846: ERROR/MainProcess] Task handler raised error: NotImplementedError('You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.',)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/billiard/pool.py", line 362, in workloop
+    result = (True, prepare_result(fun(*args, **kwargs)))
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 558, in _fast_trace_task
+    uuid, args, kwargs, request,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 499, in trace_task
+    I, _, _, _ = on_error(task_request, exc, uuid)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 339, in on_error
+    task, request, eager=eager, call_errbacks=call_errbacks,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 172, in handle_error_state
+    call_errbacks=call_errbacks)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 220, in handle_failure
+    task.on_failure(exc, req.id, req.args, req.kwargs, einfo)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 24, in on_failure
+    camel_case = "".join(x.title() for x in self._get_app_name().split('_'))
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 43, in _get_app_name
+    "You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details."
+NotImplementedError: You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.
+[2020-01-16 17:47:36,494: ERROR/MainProcess] Task handler raised error: NotImplementedError('You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.',)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/billiard/pool.py", line 362, in workloop
+    result = (True, prepare_result(fun(*args, **kwargs)))
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 558, in _fast_trace_task
+    uuid, args, kwargs, request,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 499, in trace_task
+    I, _, _, _ = on_error(task_request, exc, uuid)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 339, in on_error
+    task, request, eager=eager, call_errbacks=call_errbacks,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 172, in handle_error_state
+    call_errbacks=call_errbacks)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 220, in handle_failure
+    task.on_failure(exc, req.id, req.args, req.kwargs, einfo)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 24, in on_failure
+    camel_case = "".join(x.title() for x in self._get_app_name().split('_'))
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 43, in _get_app_name
+    "You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details."
+NotImplementedError: You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.
+[2020-01-16 18:01:43,965: ERROR/MainProcess] Task handler raised error: NotImplementedError('You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.',)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/billiard/pool.py", line 362, in workloop
+    result = (True, prepare_result(fun(*args, **kwargs)))
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 558, in _fast_trace_task
+    uuid, args, kwargs, request,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 499, in trace_task
+    I, _, _, _ = on_error(task_request, exc, uuid)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 339, in on_error
+    task, request, eager=eager, call_errbacks=call_errbacks,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 172, in handle_error_state
+    call_errbacks=call_errbacks)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 220, in handle_failure
+    task.on_failure(exc, req.id, req.args, req.kwargs, einfo)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 24, in on_failure
+    camel_case = "".join(x.title() for x in self._get_app_name().split('_'))
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 43, in _get_app_name
+    "You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details."
+NotImplementedError: You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.
+[2020-01-17 08:48:15,050: ERROR/MainProcess] Task handler raised error: NotImplementedError('You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.',)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/billiard/pool.py", line 362, in workloop
+    result = (True, prepare_result(fun(*args, **kwargs)))
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 558, in _fast_trace_task
+    uuid, args, kwargs, request,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 499, in trace_task
+    I, _, _, _ = on_error(task_request, exc, uuid)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 339, in on_error
+    task, request, eager=eager, call_errbacks=call_errbacks,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 172, in handle_error_state
+    call_errbacks=call_errbacks)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 220, in handle_failure
+    task.on_failure(exc, req.id, req.args, req.kwargs, einfo)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 24, in on_failure
+    camel_case = "".join(x.title() for x in self._get_app_name().split('_'))
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 43, in _get_app_name
+    "You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details."
+NotImplementedError: You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.

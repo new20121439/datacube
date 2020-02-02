@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test </title> 
+</head>
+<body>
+    {% for task__ in  task %}
+        <p> {{ task__.user_name }}</p>
+        <p> {{ task__.age }} </p>
+        {% for job__ in task__.job_set.all %}
+            <p> {{ job__.job }} </p>
+        {% endfor %}
+    {% endfor %}
+    {% comment %} <p> {{ Job.job }}</p> {% endcomment %}
+</body>
+</html>

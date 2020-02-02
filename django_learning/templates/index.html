@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+{% comment %} {% for user in  task %}
+    <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+        <li> {{ user.user_name }} </li>
+        <li> {{ user.age }} </li>
+        <li><a href="#">JavaScript</a></li>
+    </ul>
+    </div>
+{% endfor %} {% endcomment %}
+<div id="output_list" class="boxed_list panel-group col-lg-12">
+  {% for user in task %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#output_list" href="#output_{{ forloop.counter0 }}" onmousedown="outputClicked('{{ task.id }}')">
+          {{ user.user_name }}</a>
+        </h4>
+      </div>
+      <div id="output_{{ forloop.counter0 }}" class="panel-collapse collapse">
+        <div class="panel-body">
+          {% block table_rows %}
+            <p> {{ user.age }} </p>
+            {% for job_set in user.job_set.all %}
+                <p> {{job_set.job }}</p>
+            {% endfor %}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+</body>
+</html>

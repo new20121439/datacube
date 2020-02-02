@@ -1,0 +1,330 @@
+[2020-01-16 10:25:58,917: ERROR/ForkPoolWorker-7] Task dc_algorithm.task_clean_up[ca23bb79-5fd1-4acb-8142-59804079674c] raised unexpected: NameError("name 'DownloadTask' is not defined",)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 127, in task_clean_up
+    task = eval("{}.objects.get(pk='{}')".format(task_model, task_id))
+  File "<string>", line 1, in <module>
+NameError: name 'DownloadTask' is not defined
+[2020-01-16 10:27:12,494: ERROR/ForkPoolWorker-7] Task dc_algorithm.task_clean_up[bc7e7f1c-42eb-4500-81d2-c1007b50caf1] raised unexpected: NameError("name 'DownloadTask' is not defined",)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 127, in task_clean_up
+    task = eval("{}.objects.get(pk='{}')".format(task_model, task_id))
+  File "<string>", line 1, in <module>
+NameError: name 'DownloadTask' is not defined
+[2020-01-16 10:29:12,302: WARNING/ForkPoolWorker-7] /home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py:570: RuntimeWarning: Exception raised outside body: NotImplementedError('You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.',):
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dung/Datacube/data_cube_ui/apps/download/tasks.py", line 32, in run
+    create_outputs.s(task_id=task_id)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/canvas.py", line 881, in __new__
+    return reduce(operator.or_, tasks)
+TypeError: unsupported operand type(s) for |: 'method' and 'Signature'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 399, in trace_task
+    I, R, state, retval = on_error(task_request, exc, uuid)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 339, in on_error
+    task, request, eager=eager, call_errbacks=call_errbacks,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 172, in handle_error_state
+    call_errbacks=call_errbacks)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 220, in handle_failure
+    task.on_failure(exc, req.id, req.args, req.kwargs, einfo)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 24, in on_failure
+    camel_case = "".join(x.title() for x in self._get_app_name().split('_'))
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 43, in _get_app_name
+    "You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details."
+NotImplementedError: You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.
+
+  exc, exc_info.traceback)))
+[2020-01-16 10:31:22,081: ERROR/ForkPoolWorker-7] Task dc_algorithm.task_clean_up[14fbbb56-b7a2-476b-a6b1-7997a871f4a5] raised unexpected: NameError("name 'DownloadTask' is not defined",)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 127, in task_clean_up
+    task = eval("{}.objects.get(pk='{}')".format(task_model, task_id))
+  File "<string>", line 1, in <module>
+NameError: name 'DownloadTask' is not defined
+[2020-01-16 10:43:50,770: ERROR/ForkPoolWorker-7] Task dc_algorithm.task_clean_up[f5e083a6-a2ac-47a5-9ea2-de4e903db81c] raised unexpected: NameError("name 'DownloadTask' is not defined",)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 127, in task_clean_up
+    task_model = kwargs['task_model']
+  File "<string>", line 1, in <module>
+NameError: name 'DownloadTask' is not defined
+[2020-01-16 11:14:30,580: ERROR/ForkPoolWorker-7] Task dc_algorithm.task_clean_up[45286662-56c0-4b93-bfa6-3f2ac0fa8ac2] raised unexpected: NameError("name 'DownloadTask' is not defined",)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 127, in task_clean_up
+    task_model = kwargs['task_model']
+  File "<string>", line 1, in <module>
+NameError: name 'DownloadTask' is not defined
+[2020-01-16 11:16:10,932: ERROR/ForkPoolWorker-7] Task dc_algorithm.task_clean_up[98a383ec-c273-40f1-8a78-26ea8f574674] raised unexpected: NameError("name 'DownloadTask' is not defined",)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 127, in task_clean_up
+    task_model = kwargs['task_model']
+  File "<string>", line 1, in <module>
+NameError: name 'DownloadTask' is not defined
+[2020-01-16 11:17:25,097: ERROR/ForkPoolWorker-7] Task dc_algorithm.task_clean_up[d2db10c5-81c3-4039-b11a-e4bcef81f8e4] raised unexpected: NameError("name 'DownloadTask' is not defined",)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 127, in task_clean_up
+    task_model = kwargs['task_model']
+  File "<string>", line 1, in <module>
+NameError: name 'DownloadTask' is not defined
+[2020-01-16 11:23:43,814: ERROR/ForkPoolWorker-7] Task dc_algorithm.task_clean_up[0e1b1202-c631-49d0-9f1c-498ef782c67a] raised unexpected: NameError("name 'DownloadTask' is not defined",)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 127, in task_clean_up
+    task_model = kwargs['task_model']
+  File "<string>", line 1, in <module>
+NameError: name 'DownloadTask' is not defined
+[2020-01-16 11:41:50,504: WARNING/ForkPoolWorker-7] /home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py:570: RuntimeWarning: Exception raised outside body: NotImplementedError('You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.',):
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dung/Datacube/data_cube_ui/apps/download/tasks.py", line 32, in run
+    #     while node:
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/canvas.py", line 881, in __new__
+    return reduce(operator.or_, tasks)
+TypeError: unsupported operand type(s) for |: 'method' and 'Signature'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 399, in trace_task
+    I, R, state, retval = on_error(task_request, exc, uuid)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 339, in on_error
+    task, request, eager=eager, call_errbacks=call_errbacks,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 172, in handle_error_state
+    call_errbacks=call_errbacks)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 220, in handle_failure
+    task.on_failure(exc, req.id, req.args, req.kwargs, einfo)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 24, in on_failure
+    camel_case = "".join(x.title() for x in self._get_app_name().split('_'))
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 43, in _get_app_name
+    "You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details."
+NotImplementedError: You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.
+
+  exc, exc_info.traceback)))
+[2020-01-16 11:42:44,167: ERROR/ForkPoolWorker-7] Task dc_algorithm.task_clean_up[27127181-52c9-4842-b7c5-eb46fae15827] raised unexpected: NameError("name 'DownloadTask' is not defined",)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 127, in task_clean_up
+    task_model = kwargs['task_model']
+  File "<string>", line 1, in <module>
+NameError: name 'DownloadTask' is not defined
+[2020-01-16 11:49:00,203: ERROR/ForkPoolWorker-7] Task dc_algorithm.task_clean_up[19417b40-21e9-4cc8-b7e5-fbc3b4b211a7] raised unexpected: NameError("name 'DownloadTask' is not defined",)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 127, in task_clean_up
+    task_model = kwargs['task_model']
+  File "<string>", line 1, in <module>
+NameError: name 'DownloadTask' is not defined
+[2020-01-16 11:51:11,089: ERROR/ForkPoolWorker-7] Task dc_algorithm.task_clean_up[cb88f0db-56a1-44a0-9779-3566ecef0a80] raised unexpected: NameError("name 'DownloadTask' is not defined",)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 127, in task_clean_up
+    task_model = kwargs['task_model']
+  File "<string>", line 1, in <module>
+NameError: name 'DownloadTask' is not defined
+[2020-01-16 11:56:56,751: ERROR/ForkPoolWorker-7] Task dc_algorithm.task_clean_up[9c26ed15-2f53-4be4-96b2-56a83d277064] raised unexpected: NameError("name 'DownloadTask' is not defined",)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 127, in task_clean_up
+    task_model = kwargs['task_model']
+  File "<string>", line 1, in <module>
+NameError: name 'DownloadTask' is not defined
+[2020-01-16 11:57:25,038: WARNING/ForkPoolWorker-7] /home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py:570: RuntimeWarning: Exception raised outside body: NotImplementedError('You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.',):
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dung/Datacube/data_cube_ui/apps/download/tasks.py", line 32, in run
+    sentinel_query_task.s(task_id=task_id),
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/canvas.py", line 881, in __new__
+    return reduce(operator.or_, tasks)
+TypeError: unsupported operand type(s) for |: 'method' and 'Signature'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 399, in trace_task
+    I, R, state, retval = on_error(task_request, exc, uuid)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 339, in on_error
+    task, request, eager=eager, call_errbacks=call_errbacks,
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 172, in handle_error_state
+    call_errbacks=call_errbacks)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 220, in handle_failure
+    task.on_failure(exc, req.id, req.args, req.kwargs, einfo)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 24, in on_failure
+    camel_case = "".join(x.title() for x in self._get_app_name().split('_'))
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 43, in _get_app_name
+    "You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details."
+NotImplementedError: You must specify an app_name in classes that inherit DCAlgorithmBase. See the DCAlgorithmBase docstring for more details.
+
+  exc, exc_info.traceback)))
+[2020-01-16 13:51:42,231: ERROR/ForkPoolWorker-7] Task dc_algorithm.task_clean_up[855e3436-bcf1-479a-bb7d-bfee8bc4a848] raised unexpected: NameError("name 'DownloadTask' is not defined",)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 127, in task_clean_up
+    task_model = kwargs['task_model']
+  File "<string>", line 1, in <module>
+NameError: name 'DownloadTask' is not defined
+[2020-01-16 14:12:20,269: ERROR/ForkPoolWorker-7] Task dc_algorithm.task_clean_up[e80e12fc-f95a-4297-8537-55b9a2a54f80] raised unexpected: NameError("name 'DownloadTask' is not defined",)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 127, in task_clean_up
+    task_model = kwargs['task_model']
+  File "<string>", line 1, in <module>
+NameError: name 'DownloadTask' is not defined
+[2020-01-16 14:25:35,106: ERROR/ForkPoolWorker-7] Task dc_algorithm.task_clean_up[6f73e16f-ec82-4eea-8785-c77a4b8cb42f] raised unexpected: NameError("name 'DownloadTask' is not defined",)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 127, in task_clean_up
+    task_model = kwargs['task_model']
+  File "<string>", line 1, in <module>
+NameError: name 'DownloadTask' is not defined
+[2020-01-16 15:23:49,182: ERROR/ForkPoolWorker-7] Task dc_algorithm.task_clean_up[a5059b69-0e1c-4939-9322-4e9978704101] raised unexpected: NameError("name 'DownloadTask' is not defined",)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 127, in task_clean_up
+    task_model = kwargs['task_model']
+  File "<string>", line 1, in <module>
+NameError: name 'DownloadTask' is not defined
+[2020-01-16 16:08:35,255: ERROR/ForkPoolWorker-7] Task dc_algorithm.task_clean_up[d5c9a1fd-8dae-4e73-8b0e-ba8a9346751a] raised unexpected: NameError("name 'DownloadTask' is not defined",)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 127, in task_clean_up
+    task_model = kwargs['task_model']
+  File "<string>", line 1, in <module>
+NameError: name 'DownloadTask' is not defined
+[2020-01-16 17:09:48,278: ERROR/ForkPoolWorker-7] Task dc_algorithm.task_clean_up[edda101a-c20a-4a65-939b-9054108d3a67] raised unexpected: NameError("name 'DownloadTask' is not defined",)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 127, in task_clean_up
+    task_model = kwargs['task_model']
+  File "<string>", line 1, in <module>
+NameError: name 'DownloadTask' is not defined
+[2020-01-16 17:34:46,181: ERROR/ForkPoolWorker-7] Task dc_algorithm.task_clean_up[6793d49d-072a-4af6-bca5-028fb81e8f0b] raised unexpected: NameError("name 'DownloadTask' is not defined",)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 127, in task_clean_up
+    task_model = kwargs['task_model']
+  File "<string>", line 1, in <module>
+NameError: name 'DownloadTask' is not defined
+[2020-01-16 17:41:44,536: ERROR/ForkPoolWorker-7] Task dc_algorithm.task_clean_up[a23f14be-be9b-437d-8b1a-06959d59dfb8] raised unexpected: NameError("name 'DownloadTask' is not defined",)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 127, in task_clean_up
+    task_model = kwargs['task_model']
+  File "<string>", line 1, in <module>
+NameError: name 'DownloadTask' is not defined
+[2020-01-16 17:52:31,793: ERROR/ForkPoolWorker-7] Task dc_algorithm.task_clean_up[0e938733-4a25-4551-a165-b2c461a4721c] raised unexpected: NameError("name 'DownloadTask' is not defined",)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 127, in task_clean_up
+    task_model = kwargs['task_model']
+  File "<string>", line 1, in <module>
+NameError: name 'DownloadTask' is not defined
+[2020-01-16 18:00:09,743: ERROR/ForkPoolWorker-7] Task dc_algorithm.task_clean_up[396b1307-be20-45f5-82c4-d5bd52b3753c] raised unexpected: NameError("name 'DownloadTask' is not defined",)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 127, in task_clean_up
+    task_model = kwargs['task_model']
+  File "<string>", line 1, in <module>
+NameError: name 'DownloadTask' is not defined
+[2020-01-16 18:04:47,610: ERROR/ForkPoolWorker-7] Task dc_algorithm.task_clean_up[22db44d3-40c6-4ea5-b636-06e0a7d9c92c] raised unexpected: NameError("name 'DownloadTask' is not defined",)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 127, in task_clean_up
+    task_model = kwargs['task_model']
+  File "<string>", line 1, in <module>
+NameError: name 'DownloadTask' is not defined
+[2020-01-17 08:48:03,002: ERROR/ForkPoolWorker-7] Task dc_algorithm.task_clean_up[8d775fb8-4331-41c3-a173-737d93843a45] raised unexpected: NameError("name 'DownloadTask' is not defined",)
+Traceback (most recent call last):
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dung/Datacube/datacube_env/lib/python3.6/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dung/Datacube/data_cube_ui/apps/dc_algorithm/tasks.py", line 127, in task_clean_up
+    task_model = kwargs['task_model']
+  File "<string>", line 1, in <module>
+NameError: name 'DownloadTask' is not defined

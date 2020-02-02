@@ -1,0 +1,97 @@
+dl {
+  margin-bottom: 8px;
+}
+
+#scenes_list
+{
+    height: calc(100% - 113px);
+    border: 1px solid coral;
+    overflow-y: auto;
+}
+
+#scenes_list li dt {
+  padding-left:30px;
+  text-align: left;
+}
+
+#scenes_list li dt.section_header {
+  padding-left:10px;
+}
+
+#scenes_list li dd {
+  padding-right: 10px;
+  text-align: right;
+}
+
+#carousel, .carousel-inner{
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.item, .carousel-inner > .active, .carousel-inner > .next, .carousel-inner > .prev {
+  height:100%;
+  width: 100%;
+  display:flex;
+}
+
+.carousel-inner {
+  max-height: 100%;
+}
+
+.alternating li:nth-child(odd) {
+    background: rgba(255, 127, 80, 0.15);
+}
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    max-height:100%;
+    margin: auto;
+}
+
+.page-header {
+  margin: 20px 0 20px;
+}
+
+.selected img {
+	opacity:1;
+}
+
+#slider-thumbs {
+  padding-top: 10px;
+}
+
+.thumbnail {
+  cursor:pointer;
+  margin-bottom: 0;
+  opacity: 0.5;
+}
+
+#carousel {
+  background-color: #000;
+}
+
+.carousel-caption {
+  display:none;
+  text-shadow: 0 1px 2px rgba(0,0,0,1);
+}
+
+.carousel-caption.selected {
+  display:block;
+}
+
+.carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev {
+  left: 25px;
+}
+
+.carousel-control .glyphicon-chevron-right, .carousel-control .icon-prev {
+  right:25px;
+}
+
+.carousel-control.left, .carousel-control.right {
+  background: none;
+}
+
+.dl-horizontal {
+  border-right: 1px solid #eee;
+}

@@ -1,0 +1,127 @@
+.container-fluid.header {
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.navbar-inverse {
+  background-color: #444;
+  border-bottom: 3px solid #fdc207;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, .5);
+}
+
+.navbar-header .navbar-brand {
+  font-size: 25px;
+}
+
+.navbar-inverse .navbar-brand:hover {
+  color: #fff;
+}
+
+.navbar-inverse a {
+  font-size: 16px;
+}
+
+/* navbar font/size/color */
+.navbar-inverse .navbar-nav li a {
+  color: #fff;
+}
+
+.navbar-inverse .navbar-brand {
+    color: white;
+    padding-right: 40px;
+    /* Brand with small cube logo. */
+    padding-left: 42px;
+    background: url(../icons/data_cube_icon.png) no-repeat center left;
+}
+
+/* navbar highlighted color */
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover {
+  color: #fff;
+}
+
+.navbar-inverse .navbar-nav > li > a:focus, .navbar-inverse .navbar-nav > li > a:hover {
+  color: #fff;
+}
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-inverse .navbar-nav > .open > a:hover {
+  background-color: #555;
+  color: #fff;
+}
+
+/* navbar divider between links and login/lang. */
+.navbar .divider-vertical {
+  height: 50px;
+  margin: 0 9px;
+  border-left: 1px solid #6c6c6c;
+  border-right: 1px solid #6c6c6c;
+}
+
+/*navbar dropdown content*/
+.navbar-nav li .dropdown-menu {
+  background-color: #555;
+  border-radius: 0 0 5px 5px;
+  border: 3px solid #fdc207;
+  border-top: none;
+}
+.navbar-nav li .dropdown-menu .dropdown-submenu .dropdown-menu {
+  background-color: #555;
+  border-radius: 0 0 5px 5px;
+  border: 3px solid #fdc207;
+}
+
+/*navbar dropdown onhover color*/
+.navbar-nav li .dropdown-menu a:hover {
+  background-color: #666;
+}
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+.dropdown-submenu:hover>a:after {
+    border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}
+
+.dropdown-submenu .dropdown-menu {
+  right: auto;
+}

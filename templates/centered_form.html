@@ -1,0 +1,29 @@
+{% extends "default.html" %}
+
+{% load i18n %}
+
+{% block page_title %}
+{% trans "CEOS Data Cube UI Portal" %}
+{% endblock %}
+
+{% block css %}
+{% endblock %}
+
+{% block content %}
+<div class="container container-table no_footer">
+  <div class="row vertical-center-row">
+    <div class="{% if wide %} col-lg-8 {% else %} col-lg-4 {% endif %} col-centered form-col">
+      <!-- Header -->
+      <div class="form-header">
+          <h4 class="form-title">{{ title }}</h1>
+      </div>
+      <!-- END Header -->
+      <!-- Content -->
+      <div class="form-content">
+        {% block form %} {% endblock %}
+        <!-- END Content -->
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

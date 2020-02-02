@@ -1,0 +1,6 @@
+.idea/
+apps/*/migrations/
+**/__pycache__/
+data_cube_ui/migrations/
+data_cube_ui/__pycache__/
+celerybeat-schedule

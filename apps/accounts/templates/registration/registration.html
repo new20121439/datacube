@@ -1,0 +1,24 @@
+{% extends "centered_form.html" %}
+
+{% load bootstrap3 %}
+
+{% block css %}
+{% endblock %}
+
+{% block form %}
+<form action="{% url 'registration' %}" method="post" id="registration-form">
+    {% csrf_token %}
+    {% bootstrap_form_errors form type='non_fields' %}
+    {% for field in form %}
+      {% bootstrap_field field %}
+    {% endfor %}
+    {% if next %}
+    <input type="hidden" name="next" value="{{ next }}" />
+    {% endif %}
+    {% buttons %}
+      <button type="submit" class="btn btn-default">
+        Submit
+      </button>
+    {% endbuttons %}
+</form>
+{% endblock %}
