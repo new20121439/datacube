@@ -5,6 +5,9 @@ from glob import glob
 import gdal, gdalconst
 
 def get_name(path):
+    """
+    path/to/abc.tif ---> return: abc
+    """
     name_file=os.path.basename(path)
     name=name_file.split('.')[0]
     return name
@@ -16,6 +19,9 @@ def get_subdataset(path):
     return sub_dataset
 
 def make_dest_path(path, suffix):
+    """
+    'path/abc.tif' + suffix '-any.tif' ---> return: 'path/abc-any.tif'
+    """
     dir_name = os.path.dirname(path)
     file_name = get_name(path)
     dest_path = dir_name + '/' + file_name + suffix
@@ -49,7 +55,7 @@ class sentinel_api:
     user = 'tranvandung20121439'
     password = 'dung20121439'
     api_url = 'https://scihub.copernicus.eu/dhus'
-    directory_path = os.environ['HOME'] + '/datacube/original_data/sentinel_1/'
+    directory_path = os.environ['HOME'] + '/Datacube/datacube/ingested_data/'
     api = SentinelAPI(user, password, api_url)
     file_format = 'zip'
     
@@ -107,6 +113,9 @@ def set_metadata(source_path, dest_path):
     return True
 
 def toEPSG4326(path):
+    """
+    Change GEOTIFF image path='folder/abc.tif' to 4326 GEOTIFF 'folder/abc-4326.tif'
+    """
     dest_path = make_dest_path(path, '-4326.tif')
     if not os.path.exists(dest_path):
         cmd='gdalwarp -t_srs EPSG:4326 -dstnodata 0 {0} {1}'.format(path, dest_path)
@@ -114,6 +123,9 @@ def toEPSG4326(path):
     return dest_path
 
 def toCOG(path):
+    """
+    GEOTIFF path='folder/abc.tif' to CLOUD OPTIMIZED GEOTIFF 'folder/abc_cog.tif'
+    """
     dest_path = make_dest_path(path, '_cog.tif')
     if not os.path.exists(dest_path):
         create_cog(path, dest_path, compress='LZW')
@@ -121,7 +133,7 @@ def toCOG(path):
 
 def sentinel_1_process(zip_path, gpt, graph):
     path_COG = make_dest_path(zip_path, '-4326_cog.tif')
-    if os.path.exists(path_COG):
+    if not os.path.exists(path_COG):
         tif_path = process_by_snap(zip_path, gpt, graph)
         set_metadata(zip_path, tif_path)
         path_4326 = toEPSG4326(tif_path)

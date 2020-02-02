@@ -39,7 +39,7 @@ from apps.dc_algorithm.views import (ToolView, SubmitNewRequest,
 # sentinel sat
 from sentinelsat import SentinelAPI
 from .utils import sentinel_api, sentinel_1_process
-
+from .ingest_sentinel1 import ingest_sentinel1_grd_50m_beta0
 
 class RegionSelection(RegionSelection):
     """Creates the region selection page for the tool by extending the RegionSelection class
@@ -200,4 +200,5 @@ class DownloadProcess(View):
         zip_path = api.download()
         if api.platformname() == 'SENTINEL-1':
             path_COG = sentinel_1_process(zip_path, self.gpt, self.graph)
+            ingest_sentinel1_grd_50m_beta0(path_COG, uuid=image_id)
         return HttpResponse("Download complete")
