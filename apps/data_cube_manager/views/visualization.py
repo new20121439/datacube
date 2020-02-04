@@ -52,31 +52,64 @@ class DataCubeVisualization(View):
         context = {'form': forms.VisualizationForm()}
         context['dataset_types'] = models.DatasetType.objects.using('agdc').filter(
             definition__has_keys=['measurements'])
-        return render(request, 'data_cube_manager/visualization.html', context)
-
+        print('DataCubeVisualization: ', context) # Dung
+        return render(request, 'data_cube_manager/visualization_dung.html', context)
 
 class GetIngestedAreas(View):
     """Get a dict containing details on the ingested areas, grouped by Platform"""
 
+    platform_filter = 'metadata__platform__code'
     def get(self, request):
         """Call a synchronous task to produce a dict containing ingestion details
-
         Work performed in a synchrounous task so the execution is done on a worker rather than on
         the webserver. Gets a dict like:
             {Landsat_5: [{}, {}, {}],
             Landsat_7: [{}, {}, {}]}
         """
-
-        platforms = models.IngestionDetails.objects.filter(
-            global_dataset=False).order_by().values_list('platform').distinct()
-
+        platforms = get_platforms(models, field='metadata')
+        print('GetIngestedAreas platform: ', platforms) # dung
         ingested_area_details = {
-            platform[0]: [
-                ingestion_detail_listing.get_serialized_response()
-                for ingestion_detail_listing in models.IngestionDetails.objects.filter(
-                    global_dataset=False, platform=platform[0])
-            ]
+            platform: get_dataset_by_platform(models, self.platform_filter, platform)
             for platform in platforms
         }
-
+        print('GetIngestedAreas: ', ingested_area_details)
         return JsonResponse(ingested_area_details)
+
+
+def get_platforms(models, field='metadata'):
+    """
+    Get all platforms in DatasetType model
+    return:
+         List
+         list of all unique platforms
+    """
+    metadata_result = models.DatasetType.objects.using('agdc')
+    platforms = set()
+    for i in range(len(metadata_result)):
+        platforms.add(metadata_result[i].get_platform())
+    return list(platforms)
+
+
+def get_dataset_by_platform(models, platform_filter, platform):
+    dataset_follow_by_platform = models.Dataset.objects.using('agdc').filter(**{platform_filter: platform})
+    dataset_result = []
+    for i in range(len(dataset_follow_by_platform)):
+        filtered_platform_result = dataset_follow_by_platform[i].get_dataset_table_columns()
+        dataset_result.append(get_serialized_data(filtered_platform_result))
+    return dataset_result
+
+def get_serialized_data(data):
+    left, top = data[4].split(', ')
+    right, bot = data[5].split(', ')
+    return {
+        'dataset_type_ref': 'dataset_type_ref_dung',
+        'product': data[3],
+        'start_date': data[6],
+        'end_date': data[6],
+        'latitude_min': float(bot),
+        'latitude_max': float(top),
+        'longitude_min': float(left),
+        'longitude_max': float(right),
+        'pixel_count': 1,
+        'scene_count': 1
+    }

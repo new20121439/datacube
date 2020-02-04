@@ -59,8 +59,11 @@ class VisualizationForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
         super(VisualizationForm, self).__init__(*args, **kwargs)
-        dataset_types = DatasetType.objects.using('agdc').filter(
-            Q(definition__has_keys=['managed']) & Q(definition__has_keys=['measurements']))
+        # dung
+        # dataset_types = DatasetType.objects.using('agdc').filter(
+        #     Q(definition__has_keys=['managed']) & Q(definition__has_keys=['measurements']))
+        dataset_types = DatasetType.objects.using('agdc').filter(Q(definition__has_keys=['measurements']))
 
         choices = ["All", *sorted(set([dataset_type.metadata['platform']['code'] for dataset_type in dataset_types]))]
+        print(choices)
         self.fields['platform'].choices = ((platform, platform) for platform in choices)

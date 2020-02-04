@@ -76,11 +76,21 @@ def sentinel_query_task(parameters, task_id=None):
     platformname = parameters['products']
     longitude_min, longitude_max = parameters['longitude']
     latitude_min, latitude_max = parameters['latitude']
-    extent = Polygon([[(longitude_min, latitude_min),
-                    (longitude_max, latitude_min),
+    # Wrong formula ---> top, left = (long)
+    #extent = Polygon([[(longitude_min, latitude_min),
+    #               (longitude_max, latitude_min),
+    #                (longitude_max, latitude_max),
+    #                (longitude_min, latitude_max),
+    #                (longitude_min, latitude_min)]])
+
+    # bbox = left,bottom,right,top
+    # bbox = min Longitude , min Latitude , max Longitude , max Latitude
+    extent = Polygon([[(longitude_min, latitude_max),
                     (longitude_max, latitude_max),
-                    (longitude_min, latitude_max),
-                    (longitude_min, latitude_min)]])
+                    (longitude_max, latitude_min),
+                    (longitude_min, latitude_min),
+                    (longitude_min, latitude_max)]])
+
     extent = geojson_to_wkt(extent)
     order_by = order_by('ingestiondate', ascending=False)
     api = SentinelAPI(user, password, api_url)

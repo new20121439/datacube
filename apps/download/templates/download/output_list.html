@@ -59,7 +59,7 @@ under the License.
     {% for sentinelresult_set in task.sentinelresult_set.all %}
     <tr>
       <td>
-      <a href="#result_preview_{{ forloop.counter0 }}" data-parent="panel-body" data-toggle="collapse">{{ sentinelresult_set.uuid }}</a>
+      <a href="#result_preview_{{ forloop.counter0 }}" data-parent="panel-body" data-toggle="collapse">{{ sentinelresult_set.uuid }} {{ sentinelresult_set.endposition }}</a>
       <div id="result_preview_{{ forloop.counter0 }}" class="collapse">
         <table class="table table-striped table-bordered">
           <tbody>
@@ -80,25 +80,14 @@ under the License.
               <td class="left_aligned_text"> {{ sentinelresult_set.endposition }}</td>
             </tr>
             <tr>
-              <td> Linkdownload: </td>
+              <td> Link download: </td>
               <td> <a href="{{ sentinelresult_set.link }}"> Link download</a> </td>
             </tr>
             <tr>
+              <td> Download and ingest</td>
               <td><a href="/download/dung/{{ sentinelresult_set.uuid }}" target="_"> Download </a> </td>
             </tr>
-            <!-- <tr>
-              <td>
-                <form action="/download/done/" method="post">
-                  {% csrf_token %}
-                  
-                  </form>
-              </td>
-            </tr> -->
           </tbody>
-                      <tr>
-              <td> End position:: </td>
-              <td class="left_aligned_text"> {{ sentinelresult_set.endposition }}</td>
-            </tr>
         </table>
       </div>
       </td>

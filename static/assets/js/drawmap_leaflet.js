@@ -392,7 +392,9 @@ DrawMap.prototype.insert_image_with_bounds = function (id, url, min_lat, max_lat
  */
 DrawMap.prototype.zoom_to_image_by_id = function (id) {
     this.map.flyToBounds(this.images[id].image.getBounds(), {
-        padding: [50, 50]
+        padding: [50, 50],
+        // duration: 1,
+        animate: false
     });
 }
 
