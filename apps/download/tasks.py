@@ -76,12 +76,6 @@ def sentinel_query_task(parameters, task_id=None):
     platformname = parameters['products']
     longitude_min, longitude_max = parameters['longitude']
     latitude_min, latitude_max = parameters['latitude']
-    # Wrong formula ---> top, left = (long)
-    #extent = Polygon([[(longitude_min, latitude_min),
-    #               (longitude_max, latitude_min),
-    #                (longitude_max, latitude_max),
-    #                (longitude_min, latitude_max),
-    #                (longitude_min, latitude_min)]])
 
     # bbox = left,bottom,right,top
     # bbox = min Longitude , min Latitude , max Longitude , max Latitude
@@ -132,11 +126,10 @@ def create_outputs(product_df, task_id):
         task.sentinelresult_set.create(
             uuid=uuid[i],
             title=title[i],
-            link_icon=link_icon[i],
-            link=link[i],
+            link_icon=create_authentication_url(link_icon[i], user, password),
+            link=create_authentication_url(link[i], user, password),
             size=size[i],
             producttype=producttype[i],
-
             endposition=endposition[i]       
         )
     task.complete = True
@@ -145,3 +138,7 @@ def create_outputs(product_df, task_id):
     return True
 
 
+def create_authentication_url(url, user, password):
+    index = url.find('://') + 3
+    authentication_url = url[:index] + user + ':' + password + '@' + url[index:]
+    return authentication_url

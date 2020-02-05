@@ -52,7 +52,7 @@ class DataCubeVisualization(View):
         context = {'form': forms.VisualizationForm()}
         context['dataset_types'] = models.DatasetType.objects.using('agdc').filter(
             definition__has_keys=['measurements'])
-        print('DataCubeVisualization: ', context) # Dung
+        # print('DataCubeVisualization: ', context) # Dung
         return render(request, 'data_cube_manager/visualization_dung.html', context)
 
 class GetIngestedAreas(View):
@@ -67,7 +67,7 @@ class GetIngestedAreas(View):
             Landsat_7: [{}, {}, {}]}
         """
         platforms = get_platforms(models, field='metadata')
-        print('GetIngestedAreas platform: ', platforms) # dung
+        # print('GetIngestedAreas platform: ', platforms) # dung
         ingested_area_details = {
             platform: get_dataset_by_platform(models, self.platform_filter, platform)
             for platform in platforms
@@ -95,7 +95,9 @@ def get_dataset_by_platform(models, platform_filter, platform):
     dataset_result = []
     for i in range(len(dataset_follow_by_platform)):
         filtered_platform_result = dataset_follow_by_platform[i].get_dataset_table_columns()
-        dataset_result.append(get_serialized_data(filtered_platform_result))
+        serial_data = get_serialized_data(filtered_platform_result)
+        serial_data['dataset_type_ref'] = dataset_follow_by_platform[i].dataset_type_ref.pk 
+        dataset_result.append(serial_data)
     return dataset_result
 
 def get_serialized_data(data):
@@ -103,7 +105,7 @@ def get_serialized_data(data):
     right, bot = data[5].split(', ')
     return {
         'dataset_type_ref': 'dataset_type_ref_dung',
-        'product': data[3],
+        'product': data[0],
         'start_date': data[6],
         'end_date': data[6],
         'latitude_min': float(bot),

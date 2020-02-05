@@ -52,7 +52,7 @@ class sentinel_api:
     """
     Download choosed images
     """
-    user = 'tranvandung20121439'
+    user = 'tranvandung20121439' 
     password = 'dung20121439'
     api_url = 'https://scihub.copernicus.eu/dhus'
     directory_path = os.environ['HOME'] + '/Datacube/datacube/ingested_data/'

@@ -201,4 +201,5 @@ class DownloadProcess(View):
         if api.platformname() == 'SENTINEL-1':
             path_COG = sentinel_1_process(zip_path, self.gpt, self.graph)
             ingest_sentinel1_grd_50m_beta0(path_COG, uuid=image_id)
+            
         return HttpResponse("Download complete")
