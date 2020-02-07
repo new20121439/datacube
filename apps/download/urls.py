@@ -36,6 +36,5 @@ urlpatterns = [
     url(r'^(?P<area_id>[\w\-]+)/results_list$', views.ResultList.as_view(), name='get_results_list'),
     url(r'^(?P<area_id>[\w\-]+)/output_list$', views.OutputList.as_view(), name='get_output_list'),
     url(r'^(?P<area_id>[\w\-]+)/$', views.DownloadTool.as_view(), name='download'),
-    # url(r'^(?P<area_id>[\w\-]+)/result$', views.DownloadProcess.as_view(), name='download_process')
-    url(r'^dung/(?P<image_id>[\w\-]+)$', views.DownloadProcess.as_view(), name='current_datetime'),
+    url(r'^downloading/(?P<task_id>[\w\-]+)/(?P<platform>[\w\-]+)/(?P<image_id>[\w\-]+)$', views.DownloadProcess.as_view(), name='current_datetime'),
 ]

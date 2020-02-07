@@ -80,12 +80,16 @@ under the License.
               <td class="left_aligned_text"> {{ sentinelresult_set.endposition }}</td>
             </tr>
             <tr>
+              <td> Platform </td>
+              <td> {{ task.satellite }} </td>
+            </tr>
+            <tr>
               <td> Link download: </td>
               <td> <a href="{{ sentinelresult_set.link }}"> Link download</a> </td>
             </tr>
             <tr>
               <td> Download and ingest</td>
-              <td><a href="/download/dung/{{ sentinelresult_set.uuid }}" target="_"> Download </a> </td>
+              <td><a target="_blank" rel="noopener noreferrer" href="/download/downloading/{{ task.id }}/{{ task.satellite }}/{{ sentinelresult_set.uuid }}" target="_"> Download </a> </td>
             </tr>
           </tbody>
         </table>

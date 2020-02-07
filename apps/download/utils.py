@@ -3,6 +3,12 @@ import os
 from cogeotiff.cog import create_cog
 from glob import glob
 import gdal, gdalconst
+from . import models
+
+import requests
+import shutil
+from requests.auth import HTTPBasicAuth
+
 
 def get_name(path):
     """
@@ -46,6 +52,16 @@ def zip2COG(path):
         create_cog(sub_dataset, dest_path, compress='LZW')
     return dest_path
 
+def download_image(url, path, user, pass_word):
+    """
+    Download image from url
+    """
+    r = requests.get(url, auth=HTTPBasicAuth(user, pass_word), stream=True)
+    if r.status_code == 200:
+        with open(path, 'wb') as f:
+            r.raw.decode_content = True
+            shutil.copyfileobj(r.raw, f)
+    return True
 
 
 class sentinel_api:
@@ -58,23 +74,21 @@ class sentinel_api:
     directory_path = os.environ['HOME'] + '/Datacube/datacube/ingested_data/'
     api = SentinelAPI(user, password, api_url)
     file_format = 'zip'
-    
+    thumbnail_format = 'jpg'
+
     def __init__(self, uuid):
         self.uuid = uuid
         self.product_odata = self.api.get_product_odata(uuid)
    
     def download(self):
-        if not self.check_file():
+        if not os.path.exists(self.file_path):
             self.api.download(self.uuid, self.directory_path)
-        return self.file_path()
+        return self.file_path
 
+    @property
     def file_path(self):
         file_path = self.directory_path + self.product_odata['title'] + '.' + self.file_format 
         return file_path
-
-    def check_file(self):
-        file_path = self.file_path()
-        return os.path.exists(file_path)
 
     def platformname(self):
         prefix_name = self.product_odata['title'][:2]
@@ -84,6 +98,16 @@ class sentinel_api:
             return 'SENTINEL-2'
         else:
             return None
+
+    @property
+    def thumbnail_path(self):
+        return self.directory_path + self.product_odata['title'] + '-4326_cog.' + self.thumbnail_format 
+
+    def download_thumbnail(self, task_id):
+        task = models.DownloadTask.objects.filter(id=task_id).first()
+        link_icon = task.sentinelresult_set.filter(uuid=self.uuid).values_list('link_icon', flat=True)[0]
+        download_image(link_icon, self.thumbnail_path, self.user, self.password)
+        return self.thumbnail_path
 
 
 def process_by_snap(path, gpt='~/app/snap/bin/gpt', graph='graph_mlc_50m.xml'):

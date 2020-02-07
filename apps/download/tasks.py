@@ -77,8 +77,7 @@ def sentinel_query_task(parameters, task_id=None):
     longitude_min, longitude_max = parameters['longitude']
     latitude_min, latitude_max = parameters['latitude']
 
-    # bbox = left,bottom,right,top
-    # bbox = min Longitude , min Latitude , max Longitude , max Latitude
+
     extent = Polygon([[(longitude_min, latitude_max),
                     (longitude_max, latitude_max),
                     (longitude_max, latitude_min),
@@ -88,13 +87,6 @@ def sentinel_query_task(parameters, task_id=None):
     extent = geojson_to_wkt(extent)
     order_by = order_by('ingestiondate', ascending=False)
     api = SentinelAPI(user, password, api_url)
-    # products = api.query(extent,
-    #                      date=(parameters['time']),
-    #                      cloudcoverpercentage=(0, 10),
-    #                      platformname='SENTINEL-2',
-    #                      order_by=order_by
-    #                      )
-    
     products = api.query(extent,
                      date=(parameters['time']),
                      platformname='SENTINEL-1',

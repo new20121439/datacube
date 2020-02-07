@@ -195,11 +195,14 @@ class DownloadProcess(View):
     """
     gpt = '~/Datacube/snap/bin/gpt'
     graph = '~/Datacube/graph/graph_mlc_50m.xml'
-    def get(self, request, image_id):
+    def get(self, request, task_id, platform, image_id):
         api = sentinel_api(uuid=image_id)
+        thumbnail_path = api.download_thumbnail(task_id)
         zip_path = api.download()
-        if api.platformname() == 'SENTINEL-1':
+        if platform == 'SENTINEL-1':
             path_COG = sentinel_1_process(zip_path, self.gpt, self.graph)
             ingest_sentinel1_grd_50m_beta0(path_COG, uuid=image_id)
-            
+        else:
+            return False
+        
         return HttpResponse("Download complete")

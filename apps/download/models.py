@@ -218,10 +218,6 @@ class Result(BaseResult):
     data_path = models.CharField(max_length=250, default="")
     data_netcdf_path = models.CharField(max_length=250, default="")
 
-    # Dung additional option
-    # link_icon = models.CharField(max_length=250, default="")
-    # link = models.CharField(max_length=250, default="")
-    # uuid = models.CharField(max_length=250, default="")
     class Meta(BaseResult.Meta):
         abstract = True
 

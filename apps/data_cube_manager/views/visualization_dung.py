@@ -41,13 +41,6 @@ from apps.data_cube_manager import models
 from apps.data_cube_manager import forms
 from apps.data_cube_manager import utils
 from apps.data_cube_manager import tasks
-import datacube
-import json, geojson
-from shapely.geometry import shape
-import datetime
-from django.views.decorators.csrf import csrf_exempt
-from django.utils.decorators import method_decorator
-
 
 
 class DataCubeVisualization(View):
@@ -62,72 +55,25 @@ class DataCubeVisualization(View):
         # print('DataCubeVisualization: ', context) # Dung
         return render(request, 'data_cube_manager/visualization_dung.html', context)
 
-@method_decorator(csrf_exempt, name='dispatch')
 class GetIngestedAreas(View):
     """Get a dict containing details on the ingested areas, grouped by Platform"""
 
     platform_filter = 'metadata__platform__code'
-    
-    def post(self, request):
-        requestBody = request.body.decode('utf-8')
-        body = json.loads(requestBody)
-        aoi= {
-            "type": "Polygon",
-            "coordinates": [
-            [
-                [
-                105.72624206542969,
-                -3.0184697213063987
-                ],
-                [
-                106.00845336914062,
-                -3.0184697213063987
-                ],
-                [
-                106.00845336914062,
-                -2.741415567767233
-                ],
-                [
-                105.72624206542969,
-                -2.741415567767233
-                ],
-                [
-                105.72624206542969,
-                -3.0184697213063987
-                ]
-            ]
-            ]
+    def get(self, request):
+        """Call a synchronous task to produce a dict containing ingestion details
+        Work performed in a synchrounous task so the execution is done on a worker rather than on
+        the webserver. Gets a dict like:
+            {Landsat_5: [{}, {}, {}],
+            Landsat_7: [{}, {}, {}]}
+        """
+        platforms = get_platforms(models, field='metadata')
+        # print('GetIngestedAreas platform: ', platforms) # dung
+        ingested_area_details = {
+            platform: get_dataset_by_platform(models, self.platform_filter, platform)
+            for platform in platforms
         }
-
-        polygon = body['area']['features'][0]['geometry'] if len(body['area']['features']) > 0 else aoi
-        print(polygon)
-        dc=datacube.Datacube()
-        product="sentinel_1_grd_50m_beta0"
-        startDate = datetime.datetime.strptime(body['startDate'], r'%m/%d/%Y').strftime(r"%Y-%m-%d")
-        endDate = datetime.datetime.strptime(body['endDate'], r'%m/%d/%Y').strftime(r"%Y-%m-%d")
-        date_range=[startDate,endDate]
-
-        bbox=shape(polygon).bounds
-        search={"product": product, "time": tuple(date_range), "x": (bbox[0], bbox[2]) , "y": (bbox[1], bbox[3])}
-        ds=dc.find_datasets(**search)
-        data = []
-        for d in ds:
-            o={}
-            w,s,e,n=d.bounds
-            geometry=geojson.Polygon([[(w,s),(w,n),(e,n),(e,s),(w,s)]])
-            o["geometry"]=geometry
-            o["type"]= "Feature"
-            properties = {}
-            properties["cube_id"]=str(d.id)    
-            properties['acquired']=d.center_time.strftime ("%Y-%m-%dT%H:%M:%S.000Z")
-
-            o["properties"] = properties
-            data.append(o)
-        result={
-            "type": "FeatureCollection",
-            "features": data
-        }
-        return JsonResponse(result)
+        print('GetIngestedAreas: ', ingested_area_details)
+        return JsonResponse(ingested_area_details)
 
 
 def get_platforms(models, field='metadata'):

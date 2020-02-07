@@ -45,12 +45,12 @@ SECRET_KEY = 'j^rq-8z4l+b0cf(h3&+vjbz(bq3(d_-)h@==3vf&pz4wvz%xoh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True  # Dung change False --> True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*'] #'https://datacube.imagetrekk.ai/'
 
 MASTER_NODE = '127.0.0.1'
 
 # Application definition
-BASE_HOST = "localhost:8000/"
+BASE_HOST = 'datacube.imagetrekk.ai/' # "localhost:8000/"
 ADMIN_EMAIL = "example@your_domain.org"
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = '25'
